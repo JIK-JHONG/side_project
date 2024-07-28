@@ -3,7 +3,7 @@ import tkinter as tk
 from datetime import datetime
 from tkinter import ttk
 
-# Auth : JIK JHONG
+# Author : JIK JHONG
 # This is the program for generating the step function
 
 def run_plot():
@@ -17,45 +17,36 @@ def run_plot():
         output_filename_out = f"img_{image_file_name}_{output_filename_cc}.{output_file_type}"
     else:
         output_filename_out = f"img_step_function_{output_filename_cc}.{output_file_type}"
-    # 定義數據
     time = [0, time_start, time_start, time_end, time_end, (time_end + 20)]
     power = [0, 0, 1, 1, 0, 0]
 
-    # 創建圖形
     plt.figure()
 
-    # 畫步階函數，設置線條粗細為2
     plt.plot(time, power, color='red', linewidth=4)
 
-    # 添加標題
-    plt.title('Power Setting', fontsize=14, fontweight='bold')  # 設置標題字體大小和粗細
+    # Title setting
+    plt.title('Power Setting', fontsize=14, fontweight='bold')
 
-    # 添加 X 和 Y 軸標籤，並設置字體大小和粗細
     plt.xlabel('time (sec)', fontsize=16, fontweight='bold')
     plt.ylabel('Power On', fontsize=16, fontweight='bold')
 
-    # 設置軸的範圍
     plt.xlim(-10, max(time))
     plt.ylim(-0.1, 1.1)
 
-    # 移除外框
+    # remove frame
     plt.gca().spines['top'].set_visible(False)
     plt.gca().spines['right'].set_visible(False)
 
-    # 設置刻度的大小和顏色
-    plt.tick_params(axis='both', which='major', labelsize=14)  # 設置刻度標籤的大小為10
+    plt.tick_params(axis='both', which='major', labelsize=14) 
 
-    # 隱藏 Y 軸的數值
+    # hide the y-axis value
     plt.gca().get_yaxis().set_ticks([])
 
-    # 顯示網格
     plt.grid(False)
 
-    # 保存圖片到文件（可選）
     if images_save:
-        plt.savefig(f'{output_filename_out}')  # 可以指定文件名和路徑
-      
-    # 顯示圖形
+        plt.savefig(f'{output_filename_out}') 
+
     plt.show()
 
 
@@ -88,13 +79,11 @@ frame_main = tk.Frame(basic_frame, pady=10, padx=10)
 frame_main.pack(fill=tk.X)
 
 
-#frame_title.grid(row=0, column=0, columnspan=4, sticky=tk.W)
-
 frame_label = tk.Frame(basic_frame, pady=10, padx=10)
 frame_label.pack(fill=tk.X)
-#frame_label.grid(row=1, column=0, columnspan=4, sticky=tk.W)
 
-label_title = tk.Label(frame_title, text=f"此程式為生成 STEP FUNCTION 波形之程式",font=('Arial',14,'bold'), pady=10, padx=0,width=width_title*3, anchor="w", justify="left")
+
+label_title = tk.Label(frame_title, text=f"This program is a program that generates STEP FUNCTION waveforms",font=('Arial',14,'bold'), pady=10, padx=0,width=width_title*3, anchor="w", justify="left")
 label_title.grid(row=0, column=0, columnspan=2, sticky=tk.NW)
 
 root.resizable(False, True)
