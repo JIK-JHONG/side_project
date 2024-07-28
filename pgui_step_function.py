@@ -36,7 +36,7 @@ def run_plot():
     plt.xlim(-10, max(time))
 
     # Define specific x-ticks
-    xticks = [0, time_start, time_end]
+    xticks = [time_start, time_end]
     plt.xticks(ticks=xticks)
 
     # Optional: To ensure we include the tick labels, set the x-axis limits slightly beyond the min and max values
