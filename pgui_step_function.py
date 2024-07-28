@@ -17,9 +17,11 @@ def run_plot():
         output_filename_out = f"img_{image_file_name}_{output_filename_cc}.{output_file_type}"
     else:
         output_filename_out = f"img_step_function_{output_filename_cc}.{output_file_type}"
+    
+    # Define the time and power lists for the step function
     time = [0, time_start, time_start, time_end, time_end, (time_end + 20)]
     power = [0, 0, 1, 1, 0, 0]
-
+    
     plt.figure()
 
     plt.plot(time, power, color='red', linewidth=4)
@@ -30,14 +32,23 @@ def run_plot():
     plt.xlabel('time (sec)', fontsize=16, fontweight='bold')
     plt.ylabel('Power On', fontsize=16, fontweight='bold')
 
+    # Define the range for x-axis based on the time values
     plt.xlim(-10, max(time))
+
+    # Define specific x-ticks
+    xticks = [0, time_start, time_end]
+    plt.xticks(ticks=xticks)
+
+    # Optional: To ensure we include the tick labels, set the x-axis limits slightly beyond the min and max values
+    plt.xlim(min(xticks) - 10, max(xticks) + 10)
+    
     plt.ylim(-0.1, 1.1)
 
     # remove frame
     plt.gca().spines['top'].set_visible(False)
     plt.gca().spines['right'].set_visible(False)
 
-    plt.tick_params(axis='both', which='major', labelsize=14) 
+    plt.tick_params(axis='both', which='major', labelsize=14)
 
     # hide the y-axis value
     plt.gca().get_yaxis().set_ticks([])
@@ -48,7 +59,6 @@ def run_plot():
         plt.savefig(f'{output_filename_out}') 
 
     plt.show()
-
 
 width_range = 20
 width_range_tail = 10
