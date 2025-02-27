@@ -4,7 +4,7 @@ It is the image processs for screenstone - C++ version
 
 | Program | Type | Description |
 |-------|-------|-------|
-| [Image_screentone](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/Image_sreenstone.cpp) | C++ / OpenCV |Image processing |
+| [Image_screentone](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/Image_screentone.cpp) | C++ / OpenCV |Image processing |
 
 ImageComicMesh_Mix(Mat image_input, int screentone_size, int screentone_gap, string screentone_type,string color_type) ;  
 | Parameter | type | Description |
