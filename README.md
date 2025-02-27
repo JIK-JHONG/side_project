@@ -15,6 +15,7 @@ Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo
 
 | Program | Type | Description |
 |-------|-------|-------|
+| [thermal_conductivity](https://github.com/JIK-JHONG/side_project/tree/main/thermal_conductivity) | python | predict thermal conductivity for input temperature and power (fake model) |
 | [pgui_4ch_plot_V6](https://github.com/JIK-JHONG/side_project/tree/main/pgui_4ch_plot_V6.py) | python | Automated analysis the experiment files(*.4ch) |
 | [pgui_step_function](https://github.com/JIK-JHONG/side_project/tree/main/pgui_step_function.py) | python+tkinter | Generated the diagram of step function for report. |
 | [pgui_worm](https://github.com/JIK-JHONG/side_project/tree/main/pgui_worm.py) | python+tkinter+BeautifulSoup | web crawler for ptt |
