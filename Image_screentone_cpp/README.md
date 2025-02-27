@@ -18,4 +18,4 @@ ImageComicMesh_Mix(Mat image_input, int screentone_size, int screentone_gap, str
 
 | Original | Modified |
 |-------|-------|
-| ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/sky_tree_tokyo.jpeg) | ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/image_compare_set.jpeg) |
+| ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/sky_tree_tokyo.jpeg) | ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/image_compare_set.jpeg) |
