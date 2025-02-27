@@ -9,4 +9,4 @@ It is the image processs for screenstone - C++ version
 
 | Original | Modified |
 |-------|-------|
-| ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/sky_tree_tokyo.jpeg) | ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_object_detected/image_compare_set.jpeg) |
+| ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/sky_tree_tokyo.jpeg) | ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/image_compare_set.jpeg) |
