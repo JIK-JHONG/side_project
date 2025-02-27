@@ -1,0 +1,6 @@
+train: /Volumes/RamDisk/capoo2/train/images
+val: /Volumes/RamDisk/capoo2/val/images
+test: /Volumes/RamDisk/capoo2/test/images
+# Classes
+nc: 2
+names: ['capoo' , 'dogdog']

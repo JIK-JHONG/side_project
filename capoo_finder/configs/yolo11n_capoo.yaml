@@ -1,0 +1,18 @@
+train: /Volumes/RamDisk/capoo2/train/images
+val: /Volumes/RamDisk/capoo2/val/images
+test: /Volumes/RamDisk/capoo2/test/images
+
+# Classes
+nc: 2  # 類別數量
+names: ['capoo', 'dogdog']  # 類別名稱
+
+# 添加數據增強參數
+augment: true
+hyp:
+  flipud: 0.5  # 垂直翻轉
+  fliplr: 0.5  # 水平翻轉
+  mosaic: 1.0  # 馬賽克增強
+  mixup: 0.5   # 混合增強
+  hsv_h: 0.015  # 調整色相
+  hsv_s: 0.7    # 調整飽和度
+  hsv_v: 0.4    # 調整亮度
