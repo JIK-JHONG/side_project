@@ -1,3 +1,20 @@
+"""
+檔案名稱: Image_color_offset.py
+語言版本: Python 3.12
+編譯器/執行環境: MacOS
+
+描述:
+影像處理，特效，色差效果
+
+作者: JIK JHONG
+日期: 2025.02.27
+更新日期: 2025.02.27
+
+版本: v1.0
+
+參考文獻或相關連結:
+
+"""
 import numpy as np
 import cv2 as cv
 import matplotlib.pyplot as plt
