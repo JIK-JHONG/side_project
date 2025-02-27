@@ -18,5 +18,8 @@ Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo
 | [pgui_step_function](https://github.com/JIK-JHONG/side_project/tree/main/pgui_step_function.py) | python+tkinter | Generated the diagram of step function for report. |
 | [pgui_worm](https://github.com/JIK-JHONG/side_project/tree/main/pgui_worm.py) | python+tkinter+BeautifulSoup | web crawler for ptt |
 
-
+Note: You **NEED** install the relative package for those applications
+pip install tk
+pip install bs4
+pip install opencv-python
 
