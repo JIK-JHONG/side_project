@@ -1,21 +1,21 @@
-Image_sreenstone_cpp
+Image_screentone_cpp
 -
 It is the image processs for screenstone - C++ version
 
 | Program | Type | Description |
 |-------|-------|-------|
-| [Image_sreenstone](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/Image_sreenstone.cpp) | C++ / OpenCV |Image processing |
+| [Image_screentone](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/Image_sreenstone.cpp) | C++ / OpenCV |Image processing |
 
-ImageComicMesh_Mix(Mat image_input, int screensotne_size, int screensotne_gap, string screensotne_type,string color_type) ;  
+ImageComicMesh_Mix(Mat image_input, int screentone_size, int screentone_gap, string screentone_type,string color_type) ;  
 | Parameter | type | Description |
 |-------|-------|-------|
 | image_input | Mat | image input |
-| screensotne_size | int | size of screensotne  |
-| screensotne_gap | int | gap between screensotne |
-| screensotne_type | string | square || normal - shape of the screensotne|
-| color_type | string | std || grad - color of the screensotne, std = depended on the color of the image , grad = default purple to pink|
+| screentone_size | int | size of screentone  |
+| screentone_gap | int | gap between screentone |
+| screentone_type | string | square || normal - shape of the screentone|
+| color_type | string | std || grad - color of the screentone, std = depended on the color of the image , grad = default purple to pink|
 
 
 | Original | Modified |
 |-------|-------|
-| ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/sky_tree_tokyo.jpeg) | ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/image_compare_set.jpeg) |
+| ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/sky_tree_tokyo.jpeg) | ![Original](https://github.com/JIK-JHONG/side_project/blob/main/Image_sreenstone_cpp/image_compare_set.jpeg) |
