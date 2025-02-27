@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermal Conductivity Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static', filename='jquery-3.5.1.min.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css.css') }}">
+    <!--<script src="{{ url_for('static', filename='main.js') }}"></script>-->
+</head>
+<script>
+    function roundTo(num, decimal) {
+        return Math.round((num + Number.EPSILON) * Math.pow(10, decimal)) / Math.pow(10, decimal);
+    }
+    async function run_send_the_parameter() {
+        const element_id = ['Model', 'Power_Input', 'Temperature'];
+        const json_raw = {};
+        for (let i = 0; i < element_id.length; i++) {
+            json_raw[element_id[i]] = document.getElementById(element_id[i]).value;
+        }
+        const json_pack = JSON.stringify(json_raw);
+        console.log("preparing...");
+        console.log(json_pack);
+        const url = "/api/predict/";
+
+        try {
+            const response = await $.ajax({
+                url: url,
+                contentType: 'application/json',
+                data: json_pack,
+                type: 'POST'
+            });
+            console.log("loading...");
+            console.log(response);
+            //json_pack_rebuild = response;
+            //var json_pack_rebuild = JSON.parse(response);
+            //console.log("json_pack = ", json_pack_rebuild);
+            //console.log(json_pack_rebuild['predicted_value']);
+            const predicted_value = roundTo(parseFloat(response['predicted_value']), 2);
+            console.log(predicted_value);
+            if (!isNaN(predicted_value) && predicted_value > 0) {
+                document.getElementById("Thermal_Conductivity").value = predicted_value;
+            } else {
+                console.error('更新失敗');
+            }
+        } catch (error) {
+            console.error('AJAX error:', error.statusText, error);
+        }
+    }
+    function send_the_parameter() {
+        const element_id = ['Model', 'Power_Input', 'Temperature'];
+        var error_id = [];
+        let check_correct = 0;
+        for (let i = 0; i < element_id.length; i++) {
+            if (document.getElementById(element_id[i]).value) {
+                check_correct += 1;
+            } else {
+                error_id.push(element_id[i]);
+            }
+        }
+        if (check_correct == element_id.length) {
+            run_send_the_parameter();
+        } else {
+            alert_msg(error_id);
+        }
+    }
+    function alert_msg(error_id) {
+        var obj = document.getElementById('alert_msg_box');
+        if (error_id) {
+            var msg = "";
+            for (let i = 0; i < error_id.length; i++) {
+                msg += "'" + error_id[i] + "', ";
+            }
+            document.getElementById('alert_content').innerHTML = msg + " should be filled with value";
+        }
+        //console.log(obj.classList.contains('show'));
+        if (obj.classList.contains('show')) {
+            document.getElementById('alert_msg_box').classList.remove('show');
+        } else {
+            document.getElementById('alert_msg_box').classList.add('show');
+        }
+
+
+    }
+</script>
+
+<body>
+    <div class="alert_msg_box" id="alert_msg_box">
+        <div class="title">Error Message</div>
+        <div id="alert_content" class="content">'Model', 'Power_Input', 'Temperature' should be filled with value</div>
+        <div class="func">
+            <div class="btn" onclick="alert_msg()">I see</div>
+        </div>
+    </div>
+    <form id="parameter" name="parameter" method="" action="">
+        <div class="input_Box">
+            <div class="main">
+                <div class="title">
+                    Thermal Conductivity Prediction
+                </div>
+                <div class="note">
+                    You can select the model for different Materials (*Fake Model)<br>
+                    It is a demostration (Not real data for training)
+                </div>
+                <div class="note">
+                    Version 0.1a @ Build via Flask
+                </div>
+                <div class="note">
+                    Author : Jik Jhong
+                </div>
+            </div>
+            <div class="items">
+                <div class="title">
+                    Model Setting
+                </div>
+                <div class="value">
+                    <select id="Model">
+                        <option value="TPU">TPU / Modified TPU</option>
+                    </select>
+                </div>
+                <div class="clear_float"></div>
+            </div>
+            <div class="items">
+                <div class="title">
+                    Temperature (oC)
+                </div>
+                <div class="value">
+                    <input id="Temperature" name="Temperature" type="number" max="85" min="50">
+                </div>
+                <div class="clear_float"></div>
+            </div>
+            <div class="items">
+
+                <div class="title">
+                    Power Input (W)
+                </div>
+                <div class="value">
+                    <input id="Power_Input" name="Power_Input" type="number" max="0.6" min="0.3">
+                </div>
+                <div class="clear_float"></div>
+            </div>
+
+
+            <div class="items">
+                <div class="title">
+                    Predict Thermal Conductivity (W/mK)
+                </div>
+                <div class="value">
+                    <input id="Thermal_Conductivity" name="Thermal_Conductivity" type="text" value="" disabled>
+                </div>
+                <div class="clear_float"></div>
+            </div>
+
+            <div class="items">
+                <div class="title">
+                    Submit
+                </div>
+                <div class="value">
+                    <div class="btn" onclick="send_the_parameter()">Submit</div>
+
+                </div>
+                <div class="clear_float"></div>
+            </div>
+
+
+        </div>
+    </form>
+</body>
+
+</html>
