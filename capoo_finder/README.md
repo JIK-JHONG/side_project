@@ -15,3 +15,8 @@ It is the specified detector for **[Capoo](https://zh.wikipedia.org/zh-tw/貓貓
 | [test](https://github.com/JIK-JHONG/side_project/blob/main/capoo_finder/test) | Python+YOLO | images&labels for test |
 | [train](https://github.com/JIK-JHONG/side_project/blob/main/capoo_finder/train) | Python+YOLO | images&labels for train |
 | [val](https://github.com/JIK-JHONG/side_project/blob/main/capoo_finder/val) | Python+YOLO | images&labels for val |
+
+
+| Original | Modified |
+|-------|-------|
+| ![Original](https://github.com/JIK-JHONG/side_project/blob/main/capoo_finder/demo3.jpeg) | ![Original](https://github.com/JIK-JHONG/side_project/blob/main/capoo_finder/demo3_modified.jpeg) |
