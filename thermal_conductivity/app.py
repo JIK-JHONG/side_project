@@ -10,7 +10,7 @@ import uuid
 
 app = Flask(__name__)
 
-# 假設我們有三個不同的模型
+
 path_to_model_pth = 'model/materials_model.pth'
 
 # 載入 PyTorch 模型
