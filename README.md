@@ -13,7 +13,7 @@
 |-------|-------|-------|
 | [pgui_4ch_plot_V6](https://github.com/JIK-JHONG/side_project/tree/main/pgui_4ch_plot_V6.py) | python | Automated analysis the experiment files(*.4ch) |
 | [pgui_step_function](https://github.com/JIK-JHONG/side_project/tree/main/pgui_step_function.py) | python+tkinter | Generated the diagram of step function for report. |
-| [pgui_worm]((https://github.com/JIK-JHONG/side_project/tree/main/pgui_worm.py) | python+tkinter+BeautifulSoup | web crawler for ptt |
+| [pgui_worm](https://github.com/JIK-JHONG/side_project/tree/main/pgui_worm.py) | python+tkinter+BeautifulSoup | web crawler for ptt |
 
 
 
