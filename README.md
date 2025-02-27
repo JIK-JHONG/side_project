@@ -4,7 +4,7 @@ Image Process, Automated Assistant Programs
 
 | Program | Type | Description |
 |-------|-------|-------|
-| [Image_color_offset](https://github.com/JIK-JHONG/side_project/tree/main/Image_color_offset) | OpenCV | Image Color Offset (python)|
+| [Image_color_offset](https://github.com/JIK-JHONG/side_project/tree/main/Image_color_offset) | OpenCV | mage Processing - Color Offset (python)|
 | [Image_object_detected](https://github.com/JIK-JHONG/side_project/tree/main/Image_object_detected) | OpenCV | Object Detection (C++)|
 | [Image_screentone_cpp](https://github.com/JIK-JHONG/side_project/tree/main/Image_screentone_cpp) | OpenCV | Image Processing - screentone (C++) |
 | [capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder) | OpenCV+YOLO | specified Object Detection (including model - for [Capoo](https://zh.wikipedia.org/zh-tw/貓貓蟲咖波)) - which training by myself with photos which I token.
