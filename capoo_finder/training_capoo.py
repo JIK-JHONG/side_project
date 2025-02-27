@@ -1,3 +1,20 @@
+"""
+檔案名稱: demo_capoo.py
+語言版本: Python 3.12
+編譯器/執行環境: MacOS
+
+描述:
+影像處理，物體辨識訓練 - Capoo
+
+作者: JIK JHONG
+日期: 2025.02.27
+更新日期: 2025.02.27
+
+版本: v1.0
+
+參考文獻或相關連結:
+
+"""
 from ultralytics import YOLO
 import time
 
