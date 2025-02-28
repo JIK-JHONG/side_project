@@ -1,7 +1,9 @@
 Image Process, Automated Assistant Programs
 -
 python version : v3.12
+
 c++(g++)       : v11
+
 MacOS
 
 **Image Process**
