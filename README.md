@@ -35,11 +35,13 @@ Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo
 | [pgui_worm](https://github.com/JIK-JHONG/side_project/tree/main/pgui_worm.py) | python+tkinter+BeautifulSoup | web crawler for ptt |
 
 Note: You **NEED** install the relative package for those applications
+
 **Python**
 
 1. pip install tk
 2. pip install bs4
 3. pip install opencv-python
+
 **C++**
 
 1. brew install opencv
