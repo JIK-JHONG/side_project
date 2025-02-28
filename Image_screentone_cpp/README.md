@@ -2,9 +2,10 @@ Image_screentone_cpp
 -
 It is the image processs for screenstone - C++ version
 
-| Program | Type | Description |
-|-------|-------|-------|
-| [Image_screentone](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/Image_screentone.cpp) | C++ / OpenCV |Image processing |
+| Program | Type | Description | Input format |
+|-------|-------|-------|-------|
+| [Image_screentone](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/Image_screentone.cpp) | C++ / OpenCV |Image processing | jpeg/png/... |
+| [Image_screentone](https://github.com/JIK-JHONG/side_project/blob/main/Image_screentone_cpp/Image_screentone_mv.cpp) | C++ / OpenCV |Image processing | mp4...video|
 
 ImageComicMesh_Mix(Mat image_input, int screentone_size, int screentone_gap, string screentone_type,string color_type) ;  
 | Parameter | type | Description |
