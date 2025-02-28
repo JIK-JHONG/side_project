@@ -20,7 +20,7 @@ MacOS       : v14 ~ latest
 | [Image_color_offset](https://github.com/JIK-JHONG/side_project/tree/main/Image_color_offset) | OpenCV | Image Processing - Color Offset (python)|
 | [Image_object_detected](https://github.com/JIK-JHONG/side_project/tree/main/Image_object_detected) | OpenCV | Object Detection (C++)|
 | [Image_screentone_cpp](https://github.com/JIK-JHONG/side_project/tree/main/Image_screentone_cpp) | OpenCV | Image Processing - screentone (C++) |
-| [Image_analysis](https://github.com/JIK-JHONG/side_project/tree/main/Image_analysis) | OpenCV | Image Processing - Analysis Intensity (C++/Python) |
+| [Image_Intensity_analysis](https://github.com/JIK-JHONG/side_project/tree/main/Image_Intensity_analysis) | OpenCV | Image Processing - Analysis Intensity (C++/Python) |
 | [capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder) | OpenCV+YOLO | specified Object Detection (including model - for [Capoo](https://zh.wikipedia.org/zh-tw/貓貓蟲咖波)) - which training by myself with photos which I token.
 
 Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder)** using for identify **capoo** and **dogdog** only.
