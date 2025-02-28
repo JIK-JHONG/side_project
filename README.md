@@ -7,10 +7,10 @@ c++(g++)    : v11
 MacOS       : v14 ~ latest
 
 
-| Header_Name | Description | 
-|-------|-------|
-| Image_ | Image Processing|
-| pgui_ | Programs with GUI |
+| Header_Name | Description | Description | 
+|-------|-------|-------|
+| Image_ | Image Processing| C++ / Python / openCV ... |
+| pgui_ | Programs with GUI |Python + tkinter |
 
 
 **Image Process**
