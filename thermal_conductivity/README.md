@@ -6,3 +6,6 @@ It is a demostration for flask in predicting thermal conductivity with fake mode
 | Program | Type | Description |
 |-------|-------|-------|
 | [thermal_conductivity](https://github.com/JIK-JHONG/side_project/blob/main/thermal_conductivity/app.py) | Pyorch | thermal conductivity predict|
+
+
+![Original](https://github.com/JIK-JHONG/side_project/blob/main/thermal_conductivity/demo.jpeg) 
