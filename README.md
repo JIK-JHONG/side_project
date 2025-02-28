@@ -1,10 +1,10 @@
 Image Process, Automated Assistant Programs
 -
-python version : v3.12
+python      : v3.12
 
-c++(g++)       : v11
+c++(g++)    : v11
 
-MacOS
+MacOS       : v14 ~ latest
 
 **Image Process**
 
