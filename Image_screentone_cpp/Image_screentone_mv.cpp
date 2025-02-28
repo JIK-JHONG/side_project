@@ -536,13 +536,12 @@ int main(){
     cv::namedWindow("Original Video", cv::WINDOW_AUTOSIZE);
     cv::namedWindow("Processed Video", cv::WINDOW_AUTOSIZE);
 
-    cv::Mat frame, grayFrame, edgeFrame, edgeFrameColor;
+    cv::Mat frame, copy_set_result;
     int idx = 0;
     int div_output = 0 ;
     while (true) {
         cap >> frame; // 讀取當前幀
         if (frame.empty()) break; // 如果讀取失敗，則跳出迴圈
-        Mat copy_set_result ;
         copy_set_result = ImageGray(frame,1);
         copy_set_result = ImageBinary(copy_set_result, "inverted",80);
         copy_set_result = ImageComicMesh_Mix(copy_set_result, 1, 1,"normal","grad") ;   
