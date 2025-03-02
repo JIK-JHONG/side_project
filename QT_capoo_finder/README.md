@@ -6,7 +6,7 @@ It is using the training model for Capoo, Dogdog by YOLO.
 
 **NOTE**
 
-If you are using Apple Silicon CPU series (M1,M2,...last), is will using MPS to accelete the process for ML.
+If you are using Apple Silicon CPU series (M1,M2,...last), is will use MPS to accelete the process for ML.
 
 
 
