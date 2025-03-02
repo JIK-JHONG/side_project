@@ -1,0 +1,17 @@
+{
+    "files": [
+        "widget.py",
+        "form.ui",
+        "capoo_finder.py",
+        "core/capoo/capoo_dogdog_training/weights/best.pt",
+        "core/capoo/capoo_dogdog_training/weights/last.pt",
+        "core/configs/yolo11n_capoo.yaml",
+        "core/yolo11n_capoo_V2.yaml",
+        "core/yolo11n.pt",
+        "core/classes.txt",
+        "src/images/gpu.png",
+        "src/images/gpu_dis.png",
+        "src/images/icon_dogdog.png",
+        "src/images/icon_capoo.png"
+    ]
+}
