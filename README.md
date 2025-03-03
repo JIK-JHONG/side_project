@@ -23,6 +23,7 @@ MacOS       : v14 ~ latest
 | [Image_Intensity_analysis](https://github.com/JIK-JHONG/side_project/tree/main/Image_Intensity_analysis) | OpenCV | Image Processing - Analysis Intensity (C++/Python) |
 | [capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder) | OpenCV+YOLO | specified Object Detection (including model - for [Capoo](https://zh.wikipedia.org/zh-tw/貓貓蟲咖波)) - which training by myself with photos which I token.|
 
+Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder)** using for identify **capoo** and **dogdog** only.
 
 # Image Process with GUI
 
@@ -31,7 +32,7 @@ MacOS       : v14 ~ latest
 | [QT_Image_object_detected](https://github.com/JIK-JHONG/side_project/tree/main/QT_Image_object_detected) | OpenCV+QT | Object Detection (python)|
 | [QT_capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/QT_capoo_finder) | OpenCV+YOLO+QT | GUI + specified Object Detection (including model - for [Capoo](https://zh.wikipedia.org/zh-tw/貓貓蟲咖波)) - which training by myself with photos which I token.|
 
-Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder)** using for identify **capoo** and **dogdog** only.
+Note: **[QT_capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/QT_capoo_finder)** using for identify **capoo** and **dogdog** only.
 
 # Assistant Programs
 
