@@ -16,7 +16,7 @@ class Widget(QWidget):
         super().__init__(parent)
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
-        self.setWindowTitle("Image Process")
+        self.setWindowTitle("咖波偵測器(YOLO)")
 
         # 建立 QGraphicsScene 來顯示圖片
         # 創建不同的場景
@@ -36,6 +36,9 @@ class Widget(QWidget):
 
 
 
+
+
+
         # **調整 tableView 的大小行為**
         self.ui.tableView.horizontalHeader().setStretchLastSection(True)  # 讓最後一欄填滿
         self.ui.tableView.horizontalHeader().setSectionResizeMode(0, QHeaderView.Stretch)  # 調整第一欄
@@ -51,6 +54,8 @@ class Widget(QWidget):
         self.ui.label_7.setText(str(0))
         self.ui.label_8.setText(str(0))
 
+        self.ui.label_15.setText("硬體檢測中")
+
         self.ui.horizontalSlider.setMinimum(0)
         self.ui.horizontalSlider.setMaximum(100)
         self.ui.horizontalSlider.setValue(60)
@@ -62,6 +67,10 @@ class Widget(QWidget):
         self.ui.progressBar.setMinimum(0)
         self.ui.progressBar.setMaximum(100)
         self.ui.progressBar.setValue(0)
+
+
+        # self.ui.comboBox
+
         # 綁定 pushButton 事件
         self.ui.pushButton.clicked.connect(self.load_image)
         print(sys.path)
@@ -71,14 +80,26 @@ class Widget(QWidget):
 
 
         self.img_input_buffer = None
-        print(f"MPS = {cf.Apple_Silicon_Support()}")
-        if (cf.Apple_Silicon_Support()):
+        self.hardware_for_ML = True ;
+        hardware_support_code = cf.check_hardware_for_ML()
+        # 設定 QLabel
+        if (hardware_support_code != 0):
             image_path = os.path.join("src/images", "gpu.png")
+            self.ui.comboBox.setVisible(True)   # 顯示
+            if (hardware_support_code == 2):
+                self.ui.label_15.setText("MPS")
+            else:
+                self.ui.label_15.setText("CUDA")
+            self.hardware_for_ML = True ;
         else:
             image_path = os.path.join("src/images", "gpu_dis.png")
-        # 設定 QLabel
+            self.ui.comboBox.setVisible(False)   # 顯示
+            self.ui.label_15.setText("無硬體加速")
+            self.hardware_for_ML = False ;
         self.ui.label_12.setPixmap(QPixmap(image_path))
 
+
+        self.ui.comboBox.currentTextChanged.connect(self.onChangeHardware)
 
         print(dir(self.ui))  # 列出 self.ui 內所有物件
 
@@ -156,7 +177,7 @@ class Widget(QWidget):
     def ImageView(self, img):
         self.ui.progressBar.setValue(0)
         # fig = ip.ImageBinary(img,'normal')
-        fig , result_summary, elapsed_time = cf.capoo_finder_tool(img , self.getHorizontalSlider())
+        fig , result_summary, elapsed_time = cf.capoo_finder_tool(img , self.getHorizontalSlider(),self.hardware_for_ML)
 
         height, width, channel = fig.shape  # (高度, 寬度, 通道數)
         # 轉換為 QImage
@@ -224,6 +245,16 @@ class Widget(QWidget):
     def getHorizontalSlider(self):
         val = self.ui.horizontalSlider.value()
         return val
+
+
+    def onChangeHardware(self):
+        tmp = self.ui.comboBox.currentText()
+        if (tmp == "啟用" ):
+            self.hardware_for_ML = True ;
+        else:
+            self.hardware_for_ML = False ;
+        print(f"Main = hardware_for_ML = {self.hardware_for_ML}")
+
 
 
 if __name__ == "__main__":

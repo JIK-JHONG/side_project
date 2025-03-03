@@ -10,7 +10,7 @@ import math
 from pathlib import Path
 
 
-# 確認是否支援 MPS
+# 檢查是否支援 MPS（Mac Metal）
 def Apple_Silicon_Support():
     if torch.backends.mps.is_available():
         print("Using MPS for computation.")
@@ -19,8 +19,26 @@ def Apple_Silicon_Support():
         print("MPS not available, using CPU.")
         return False
 
+# 檢查是否支援 CUDA（NVIDIA GPU）
+def CUDA_Support():
+    if torch.cuda.is_available():
+        print("Using CUDA for computation.")
+        return True
+    else:
+        print("CUDA not available, using CPU.")
+        return False
 
-def capoo_finder_tool(input,relability=60):
+def check_hardware_for_ML():
+    if (Apple_Silicon_Support()):
+        return 2
+    else:
+        if (CUDA_Support()):
+            return 1
+        else:
+            return 0
+
+
+def capoo_finder_tool(input,relability=60,hardware_accelerate=True):
     relability = relability / 100.0
     print(f"relability = {relability}")
     class_info = ["Capoo","DogDog"]
@@ -55,11 +73,16 @@ def capoo_finder_tool(input,relability=60):
 
 
     # 確認是否支援 MPS
-
-    if (Apple_Silicon_Support()):
-        device = torch.device("mps")  # 使用 Metal Performance Shaders
+    print(f"cc++hardware_accelerate = {hardware_accelerate}")
+    if Apple_Silicon_Support() and hardware_accelerate:
+        device = torch.device("mps")  # 使用 MPS
+        print("Using MPS for computation.")
+    elif CUDA_Support():
+        device = torch.device("cuda")  # 使用 CUDA
+        print("Using CUDA for computation.")
     else:
-        device = torch.device("cpu")  # 無 MPS 則回退到 CPU
+        device = torch.device("cpu")  # 使用 CPU
+        print("Using CPU for computation.")
 
 
     # 載入訓練好的模型
@@ -74,7 +97,7 @@ def capoo_finder_tool(input,relability=60):
     model = YOLO(str(model_path))
 
     # 轉移到裝置（GPU 或 CPU）
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    # device = "cuda" if torch.cuda.is_available() else "cpu"
     model.to(device)
 
     # model = YOLO("capoo/capoo_dogdog_training/weights/best.pt")
@@ -282,3 +305,66 @@ def image_pick_color(image, option="red", force_use=0, low_threshold_set=60):
                 output[j, i, channel_set] = image[j, i, channel_set]
 
     return output
+
+
+
+def ImageEdgeDetect(input,paramters,option="Laplacian"):
+    output_img = input.copy()
+    output = cv2.cvtColor(input, cv2.COLOR_BGR2GRAY)
+    output = cv2.medianBlur(output, 7)                 # 模糊化，去除雜訊
+    if option == "Laplacian" :
+        output = cv2.Laplacian(output, paramters[0], paramters[1], paramters[2])        # 偵測邊緣
+    elif option == "Sobel" :
+        output = cv2.Sobel(output, paramters[0], paramters[1], paramters[2], paramters[3], paramters[4])        # 偵測邊緣
+    elif option == "Canny" :
+        output = cv2.Canny(output, paramters[0], paramters[1])        # 偵測邊緣
+
+    # print(f"FF = {output.shape}")
+    height, width, channel = output_img.shape
+    for i in range(channel):
+        output_img[:,:,i] = output[:,:]
+    print(f"FF = {output_img.shape}")
+    return output_img
+
+
+def object_detected(image, threshod=80, detect_size=5):
+    save_div_image=False
+    # 讀取影像
+    # copy_set = image.copy()
+    # cv2.imshow("Original Image", copy_set)
+
+    # 轉為灰階
+    img_with_contours_b = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    # 形態學開運算
+    kernel_size = detect_size
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (kernel_size, kernel_size))
+    img_with_contours_b = cv2.morphologyEx(img_with_contours_b, cv2.MORPH_OPEN, kernel)
+
+    # 閾值處理
+    _, img_with_contours_b = cv2.threshold(img_with_contours_b, threshod, 255, cv2.THRESH_BINARY)
+
+    # 找出輪廓
+    contours, _ = cv2.findContours(img_with_contours_b, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
+    img_with_contours = image.copy()
+    cv2.drawContours(img_with_contours, contours, -1, (0, 255, 0), 4)  # 畫出綠色輪廓
+
+    # 建立遮罩影像
+    mask_image = np.zeros(image.shape[:2], dtype=np.uint8)
+    for i in range(1, len(contours)):
+        cv2.drawContours(mask_image, contours, i, 255, cv2.FILLED)
+
+    # 建立結果影像，只保留輪廓內的內容
+    result = np.full_like(image, (255, 255, 255), dtype=np.uint8)
+    # image.copyTo(result, mask_image)
+    result = cv2.bitwise_and(result, result, mask=mask_image)
+
+    # 標記與裁剪輪廓區域
+    for i in range(1, len(contours)):
+        shift_mesh = 10
+        rect = cv2.boundingRect(contours[i])
+        text = str(i)
+        text_pos = (rect[0], rect[1] - shift_mesh)
+        cv2.putText(result, text, text_pos, cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255, 0, 0), 2)
+
+    return result , (len(contours) - 1)
