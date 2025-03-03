@@ -11,7 +11,7 @@ MacOS       : v14 ~ latest
 |-------|-------|-------|
 | Image_ | Image Processing| C++ / Python / openCV ... |
 | pgui_ | Programs with GUI |Python + tkinter |
-
+| QT_ | Programs with GUI |Python + QT |
 
 **Image Process**
 
