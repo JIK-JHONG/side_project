@@ -4,6 +4,18 @@ It is the image processs for object detecting with GUI (QT creator)
 
 It is using the training model for Capoo, Dogdog by YOLO.
 
+# V1.1
+Update the function of supporting CUDA / MPS for turning ON/OFF.
+
+ON
+-
+![Review](https://github.com/JIK-JHONG/side_project/blob/main/QT_capoo_finder/demo_mps.jpeg) 
+
+OFF
+-
+![Review](https://github.com/JIK-JHONG/side_project/blob/main/QT_capoo_finder/demo_mps_dis.jpeg) 
+
+
 **NOTE**
 
 If you are using Apple Silicon CPU series (M1,M2,...last), is will use MPS to accelete the process for ML.
