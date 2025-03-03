@@ -4,6 +4,11 @@ It is the image processs for object detecting with GUI (QT creator)
 
 It is using the training model for Capoo, Dogdog by YOLO.
 
+| Program | Type | Description |
+|-------|-------|-------|
+| [QT_capoo_finder](https://github.com/JIK-JHONG/side_project/blob/main/QT_capoo_finder) | python / OpenCV + QT | Object detecting |
+
+
 # V1.1
 Update the function of supporting CUDA / MPS for turning ON/OFF.
 
@@ -24,10 +29,7 @@ If you are using Apple Silicon CPU series (M1,M2,...last), is will use MPS to ac
 
 
 
-| Program | Type | Description |
-|-------|-------|-------|
-| [QT_capoo_finder](https://github.com/JIK-JHONG/side_project/blob/main/QT_capoo_finder) | python / OpenCV + QT | Object detecting |
-
+# V1.0
 
 ![Review](https://github.com/JIK-JHONG/side_project/blob/main/QT_capoo_finder/demo.jpeg) 
 
