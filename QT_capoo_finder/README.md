@@ -20,4 +20,4 @@ If you are using Apple Silicon CPU series (M1,M2,...last), is will use MPS to ac
 
 
 # Memo
-The image input of YOLO is RGB and openCV is BRG, when send the image data to different function, need to be careful for the format.
+The image of YOLO is RGB and openCV is BRG, when send the image data to different function, need to be careful for the format.
