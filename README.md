@@ -13,7 +13,7 @@ MacOS       : v14 ~ latest
 | pgui_ | Programs with GUI |Python + tkinter |
 | QT_ | Programs with GUI |Python or C++ + QT |
 
-**Image Process**
+# Image Process
 
 | Program | Type | Description |
 |-------|-------|-------|
@@ -24,7 +24,7 @@ MacOS       : v14 ~ latest
 | [capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder) | OpenCV+YOLO | specified Object Detection (including model - for [Capoo](https://zh.wikipedia.org/zh-tw/貓貓蟲咖波)) - which training by myself with photos which I token.|
 
 
-**Image Process with GUI**
+# Image Process with GUI
 
 | Program | Type | Description |
 |-------|-------|-------|
@@ -33,7 +33,7 @@ MacOS       : v14 ~ latest
 
 Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo_finder)** using for identify **capoo** and **dogdog** only.
 
-**Assistant Programs**
+# Assistant Programs
 
 | Program | Type | Description |
 |-------|-------|-------|
