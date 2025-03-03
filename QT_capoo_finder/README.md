@@ -7,6 +7,8 @@ It is using the training model for Capoo, Dogdog by YOLO.
 # V1.1
 Update the function of supporting CUDA / MPS for turning ON/OFF.
 
+**I DON'T KNOW WHY MPS ON is SLOWER than CPU. :(**
+
 ON
 -
 ![Review](https://github.com/JIK-JHONG/side_project/blob/main/QT_capoo_finder/demo_mps.jpeg) 
