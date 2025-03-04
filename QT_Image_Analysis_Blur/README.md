@@ -27,9 +27,9 @@ QT_Image_Analysis_Blur 景深模擬小工具（計算）
 
 # 模糊使用介面
 
-![介面](https://github.com/JIK-JHONG/side_project/tree/main/QT_Image_Analysis_Blur/demo_blur.jpeg)
+![介面](https://github.com/JIK-JHONG/side_project/blob/main/QT_Image_Analysis_Blur/demo_blur.jpeg)
 
 
 # 過程檢視介面（可以看 Mask ），白色為主體，黑色為背景。
 
-![介面](https://github.com/JIK-JHONG/side_project/tree/main/QT_Image_Analysis_Blur/demo_binary.jpeg)
+![介面](https://github.com/JIK-JHONG/side_project/blob/main/QT_Image_Analysis_Blur/demo_binary.jpeg)
