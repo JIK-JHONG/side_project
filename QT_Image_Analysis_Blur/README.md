@@ -16,6 +16,10 @@ QT_Image_Analysis_Blur 景深模擬小工具（計算）
 3. Open or Close 運算
 4. Binary
 
+
+Note : 原本有使用 Canny，但他是用於找邊緣，對於計算景深，並沒有太大幫助（儘管設定成填充模式FILLED，效果有限）；故捨去。
+
+
 此時的圖像為 Binary 的 Mask，為了讓邊緣平滑過渡，可以進行 Gaussian 作為平滑化的依據。
 
 # 分離主體與背景：背景處理（原本圖片）
