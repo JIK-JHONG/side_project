@@ -31,6 +31,9 @@ Note: **[capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/capoo
 |-------|-------|-------|
 | [QT_Image_object_detected](https://github.com/JIK-JHONG/side_project/tree/main/QT_Image_object_detected) | OpenCV+QT | Object Detection (python)|
 | [QT_capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/QT_capoo_finder) | OpenCV+YOLO+QT | GUI + specified Object Detection (including model - for [Capoo](https://zh.wikipedia.org/zh-tw/貓貓蟲咖波)) - which training by myself with photos which I token.|
+| [QT_Image_Analysis_Blur](https://github.com/JIK-JHONG/side_project/tree/main/QT_Image_Analysis_Blur) | OpenCV+QT | Simulating the Depth of field, DOF for image (C++)|
+
+
 
 Note: **[QT_capoo_finder](https://github.com/JIK-JHONG/side_project/tree/main/QT_capoo_finder)** using for identify **capoo** and **dogdog** only.
 
