@@ -7,6 +7,8 @@ QT_Image_Analysis_Blur 景深模擬小工具（計算）
 
 此為 practise 項目改的，所以命名有點亂，但功能有趣，就先放到 side_project，之後再進行調整。
 
+演算法部分，採用相對單純的遮罩計算。
+
 
 **演算法概念**
 
@@ -37,3 +39,11 @@ Note : 原本有使用 Canny，但他是用於找邊緣，對於計算景深，�
 # 過程檢視介面（可以看 Mask ），白色為主體，黑色為背景。
 
 ![介面](https://github.com/JIK-JHONG/side_project/blob/main/QT_Image_Analysis_Blur/demo_binary.jpeg)
+
+
+# 浮水印：
+1. 覆蓋率 = 遮罩(Mask)像素 / 整體像素 * 100%
+2. 遮罩(Mask)像素
+3. 整體像素
+
+
