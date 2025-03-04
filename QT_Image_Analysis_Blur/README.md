@@ -1,0 +1,35 @@
+QT_Image_Analysis_Blur 景深模擬小工具（計算）
+-
+
+**透過影像計算來弄出類似景深效果的功能。**
+
+# V 1.0  Relased on 2025.03.04
+
+此為 practise 項目改的，所以命名有點亂，但功能有趣，就先放到 side_project，之後再進行調整。
+
+
+**演算法概念**
+
+# 找出主體（原本圖片）
+1. Gray
+2. Gaussian - blur
+3. Open or Close 運算
+4. Binary
+
+此時的圖像為 Binary 的 Mask，為了讓邊緣平滑過渡，可以進行 Gaussian 作為平滑化的依據。
+
+# 分離主體與背景：背景處理（原本圖片）
+1. Gaussian - blur
+
+# 合併計算：
+1. 處理過的背景 + 分離的主體 進行圖片合併（判斷 mask > 0 ）
+
+
+# 模糊使用介面
+
+![介面](https://github.com/JIK-JHONG/side_project/tree/main/QT_Image_Analysis_Blur/demo_blur.jpeg)
+
+
+# 過程檢視介面（可以看 Mask ），白色為主體，黑色為背景。
+
+![介面](https://github.com/JIK-JHONG/side_project/tree/main/QT_Image_Analysis_Blur/demo_binary.jpeg)
