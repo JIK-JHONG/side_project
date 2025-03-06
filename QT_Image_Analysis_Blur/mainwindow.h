@@ -31,9 +31,9 @@ private slots:
     int getImageValue();  // 更新 二元閥值 數值
     void updateImageValue_2(int value);  // 更新 二元閥值 數值
     int getImageValue_2();  // 更新 二元閥值 數值
-    void updateScreentoneGapValue(int value);  // 更新 gap 的數值
-    void updateScreentoneGapValue_2(int value);  // 更新 gap 的數值
-    void updateScreentoneSizeValue(int value); // 更新 size 的數值
+    void updateBlur_Edge(int value);  // 更新 gap 的數值
+    void updateBlur_Bks(int value);  // 更新 gap 的數值
+    void updateBinary_Threshold(int value); // 更新 size 的數值
     // void updateOptionSet();  // 新增的方法來檢查 radio button 狀態
     void updateOptionCheck();  // 檢查 check box 狀態
     // int getOptionSet();  // 新增的方法來檢查 radio button 狀態
@@ -45,9 +45,9 @@ private slots:
     int getOptionCheck3();  // 檢查 check box 狀態
 
     void onResultButtonClicked();   // 輸出選擇
-    int getScreentoneGapValue();
-    int getScreentoneGapValue_2();
-    int getScreentoneSizeValue();
+    int getBlur_Edge();
+    int getBlur_Bks();
+    int getBinary_Threshold();
     // int getOptionColorSet();
     // void updateOptionColorSet();
     int getbwrev_btnSet();
@@ -64,10 +64,10 @@ private:
     Ui::MainWindow *ui;
     void fitImageToView(QGraphicsPixmapItem *item, QGraphicsView *view);
     QLineEdit *filePathInfo;  // 宣告 QLabel 用來顯示檔案路徑
-    QLabel *image_w_val, *image_h_val, *image_c_val,*screenton_gap,*screenton_size, *image_threshold_val, *image_threshold_val_2, *label_time, *screenton_gap_2;
+    QLabel *image_w_val, *image_h_val, *image_c_val,*Slider_Blur_Edge_Val,*Slider_Binary_Threshold_Val, *image_threshold_val, *image_threshold_val_2, *label_time, *Slider_Blur_Bks_Val;
     // QRadioButton *radioBtn_0, *radioBtn_1, *radioBtn_2, *radioBtn_3;
-    QSlider *Slider_screentone_gap, *Slider_screentone_size, *image_threshold,*image_threshold_2, *Slider_screentone_gap_2;
-    QCheckBox *option_check, *option_check_2, *option_check_3;
+    QSlider *Slider_Blur_Edge, *Slider_Binary_Threshold, *image_threshold,*image_threshold_2, *Slider_Blur_Bks;
+    QCheckBox *option_check, *option_check_2, *option_check_binary;
     QPushButton *result,*bwrev_btn;
     QProgressBar *progressBar;
     // QLabel *image_w_val;

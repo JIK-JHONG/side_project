@@ -281,7 +281,7 @@
       <string>二階化閥值</string>
      </property>
     </widget>
-    <widget class="QSlider" name="Slider_screentone_size">
+    <widget class="QSlider" name="Slider_Binary_Threshold">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -294,7 +294,7 @@
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="screenton_size">
+    <widget class="QLabel" name="Slider_Binary_Threshold_Val">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -309,7 +309,7 @@
       </font>
      </property>
      <property name="text">
-      <string>1</string>
+      <string>80</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -334,7 +334,7 @@
       <string>邊緣模糊值</string>
      </property>
     </widget>
-    <widget class="QSlider" name="Slider_screentone_gap">
+    <widget class="QSlider" name="Slider_Blur_Edge">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -347,7 +347,7 @@
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="screenton_gap">
+    <widget class="QLabel" name="Slider_Blur_Edge_Val">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -381,7 +381,7 @@
       <string>反向選取</string>
      </property>
     </widget>
-    <widget class="QSlider" name="Slider_screentone_gap_2">
+    <widget class="QSlider" name="Slider_Blur_Bks">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -394,7 +394,7 @@
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
     </widget>
-    <widget class="QLabel" name="screenton_gap_2">
+    <widget class="QLabel" name="Slider_Blur_Bks_Val">
      <property name="geometry">
       <rect>
        <x>120</x>
@@ -447,7 +447,7 @@
     <property name="title">
      <string>過程顯示</string>
     </property>
-    <widget class="QCheckBox" name="option_check_3">
+    <widget class="QCheckBox" name="option_check_binary">
      <property name="geometry">
       <rect>
        <x>10</x>

@@ -22,15 +22,15 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     // // 初始化 QSlider 範圍
-    // Slider_screentone_gap = new QSlider(Qt::Horizontal, this);
-    // Slider_screentone_size = new QSlider(Qt::Horizontal, this);
+    // Slider_Blur_Edge = new QSlider(Qt::Horizontal, this);
+    // Slider_Binary_Threshold = new QSlider(Qt::Horizontal, this);
 
-    ui->Slider_screentone_gap->setRange(1, 255);  // 設定範圍：1 到 100
-    ui->Slider_screentone_size->setRange(0, 255);  // 設定範圍：5 到 50
-    ui->Slider_screentone_gap_2->setRange(0, 255);  // 設定範圍：5 到 50
-    ui->Slider_screentone_gap->setValue(1);
-    ui->Slider_screentone_size->setValue(80);
-    ui->Slider_screentone_gap_2->setValue(1);
+    ui->Slider_Blur_Edge->setRange(1, 255);  // 設定範圍：1 到 100
+    ui->Slider_Binary_Threshold->setRange(0, 255);  // 設定範圍：5 到 50
+    ui->Slider_Blur_Bks->setRange(0, 255);  // 設定範圍：5 到 50
+    ui->Slider_Blur_Edge->setValue(1);
+    ui->Slider_Binary_Threshold->setValue(80);
+    ui->Slider_Blur_Bks->setValue(1);
 
 
     ui->image_threshold->setRange(0, 255);  // 設定範圍：5 到 50
@@ -46,13 +46,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->progressBar->setValue(0);   // 設定當前值
 
     // // 初始化 QLabel 來顯示數值
-    // screenton_gap = new QLabel("1", this);
-    // screenton_size = new QLabel("1", this);
+    // Slider_Blur_Edge_Val = new QLabel("1", this);
+    // Slider_Binary_Threshold_Val = new QLabel("1", this);
 
     // 連接 Slider 的 valueChanged 訊號到槽函式
-    connect(ui->Slider_screentone_gap, &QSlider::valueChanged, this, &MainWindow::updateScreentoneGapValue);
-    connect(ui->Slider_screentone_gap_2, &QSlider::valueChanged, this, &MainWindow::updateScreentoneGapValue_2);
-    connect(ui->Slider_screentone_size, &QSlider::valueChanged, this, &MainWindow::updateScreentoneSizeValue);
+    connect(ui->Slider_Blur_Edge, &QSlider::valueChanged, this, &MainWindow::updateBlur_Edge);
+    connect(ui->Slider_Blur_Bks, &QSlider::valueChanged, this, &MainWindow::updateBlur_Bks);
+    connect(ui->Slider_Binary_Threshold, &QSlider::valueChanged, this, &MainWindow::updateBinary_Threshold);
 
     connect(ui->image_threshold, &QSlider::valueChanged, this, &MainWindow::updateImageValue);
     connect(ui->image_threshold_2, &QSlider::valueChanged, this, &MainWindow::updateImageValue_2);
@@ -146,13 +146,13 @@ void MainWindow::onResultButtonClicked() {
     }
     // 4. 混合影像效果
 
-    int screentone_size = getScreentoneSizeValue();
-    int screentone_gap = getScreentoneGapValue();
-    int screentone_gap_2 = getScreentoneGapValue_2();
-    qDebug() << "screentone_size = " << screentone_size;  // 如果圖標找不到，輸出訊息
-    qDebug() << "screentone_gap = " << screentone_gap;  // 如果圖標找不到，輸出訊息
-    std::string screentone_type = "normal";
-    std::string screentone_color = "grad";
+    int Binary_Threshold_Size = getBinary_Threshold();
+    int Blur_Edge_Size = getBlur_Edge();
+    int Blur_Bks_Size = getBlur_Bks();
+    qDebug() << "Binary_Threshold_Size = " << Binary_Threshold_Size;  // 如果圖標找不到，輸出訊息
+    qDebug() << "Blur_Edge_Size = " << Blur_Edge_Size;  // 如果圖標找不到，輸出訊息
+    // std::string screentone_type = "normal";
+    // std::string screentone_color = "grad";
     // int output_file_option = 0 ;
 
     // if (getOptionSet() == 0){
@@ -168,8 +168,8 @@ void MainWindow::onResultButtonClicked() {
     // }
 
     int image_threshold_2 = getImageValue_2();
-    qDebug() << "screentone_color = " << screentone_color;  // 如果圖標找不到，輸出訊息
-    // cv::Mat copy_set_result = ImageComicMesh_Mix(copy_set, screentone_size, screentone_gap, screentone_type, screentone_color);
+    // qDebug() << "screentone_color = " << screentone_color;  // 如果圖標找不到，輸出訊息
+    // cv::Mat copy_set_result = ImageComicMesh_Mix(copy_set, Binary_Threshold_Size, Blur_Edge_Size, screentone_type, screentone_color);
 
     qDebug() << "image_threshold = " << image_threshold;  // 如果圖標找不到，輸出訊息
     qDebug() << "image_threshold_2 = " << image_threshold_2;  // 如果圖標找不到，輸出訊息
@@ -181,7 +181,7 @@ void MainWindow::onResultButtonClicked() {
 
     }
     qDebug() << "[]img_revise_select = " << img_revise_select;  // 如果圖標找不到，輸出訊息
-    cv::Mat copy_set_result = Image_Test_Canny(copy_set,img0,screentone_size,screentone_gap,image_threshold,image_threshold_2,getbwrev_btnSet(),img_revise_select,getOptionCheck3(),screentone_gap_2);
+    cv::Mat copy_set_result = Image_Test_Canny(copy_set,img0,Binary_Threshold_Size,Blur_Edge_Size,image_threshold,image_threshold_2,getbwrev_btnSet(),img_revise_select,getOptionCheck3(),Blur_Bks_Size);
 
     // copy_set = ImageComicMesh_Mix(copy_set, 1, 1, "square", "std");
 
@@ -261,10 +261,18 @@ void MainWindow::onResultButtonClicked() {
         bool success = cv::imwrite(finalSavePath.toStdString(), copy_set_result);
 
         // 檢查儲存結果，並顯示對話框通知使用者
+        // if (finalSavePath.isEmpty()) {
+        //     qDebug() << "Error: finalSavePath is empty!";
+        //     return;
+        // }
+        // 下面視窗顯示會有問題（如果透過QT IDE）。
         if (success) {
             QMessageBox::information(this, "儲存完成", "圖像已成功儲存到：" + finalSavePath);
+            // QMessageBox::information(nullptr, "儲存完成", "圖像已成功儲存到：" + finalSavePath);
+            // QMessageBox::information();
         } else {
             QMessageBox::warning(this, "儲存失敗", "無法儲存圖像到：" + finalSavePath);
+            // QMessageBox::warning(nullptr, "儲存失敗", "無法儲存圖像到：" + finalSavePath);
         }
     }
     qint64 elapsedTime = timer.elapsed();
@@ -383,7 +391,7 @@ int MainWindow::getOptionCheck2()
 void MainWindow::updateOptionCheck3()
 {
     // 檢查 option_check 的選擇狀態
-    if (ui->option_check_3->isChecked()) {
+    if (ui->option_check_binary->isChecked()) {
         qDebug() << "Option check is selected!";
     } else {
         qDebug() << "Option check is not selected.";
@@ -393,7 +401,7 @@ int MainWindow::getOptionCheck3()
 {
     int check_status = 0 ;
     // 檢查 option_check 的選擇狀態
-    if (ui->option_check_3->isChecked()) {
+    if (ui->option_check_binary->isChecked()) {
         check_status = 1 ;
         qDebug() << "Option check is selected!";
     } else {
@@ -557,33 +565,33 @@ void MainWindow::updateProcessBar(int value){
     ui->progressBar->setValue(value);
 }
 // 更新 Gap 值
-int MainWindow::getScreentoneGapValue() {
-    return ui->Slider_screentone_gap->value(); // 正確取得並返回數值
+int MainWindow::getBlur_Edge() {
+    return ui->Slider_Blur_Edge->value(); // 正確取得並返回數值
 }
-void MainWindow::updateScreentoneGapValue(int value)
+void MainWindow::updateBlur_Edge(int value)
 {
-    ui->screenton_gap->setText(QString::number(value));  // 使用 setText 更新 QLabel
-    qDebug() << "screenton_gap = " <<QString::number(value);
+    ui->Slider_Blur_Edge_Val->setText(QString::number(value));  // 使用 setText 更新 QLabel
+    qDebug() << "Slider_Blur_Edge_Val = " <<QString::number(value);
     onResultButtonClicked();
 }
-int MainWindow::getScreentoneGapValue_2() {
-    return ui->Slider_screentone_gap_2->value(); // 正確取得並返回數值
+int MainWindow::getBlur_Bks() {
+    return ui->Slider_Blur_Bks->value(); // 正確取得並返回數值
 }
-void MainWindow::updateScreentoneGapValue_2(int value)
+void MainWindow::updateBlur_Bks(int value)
 {
-    ui->screenton_gap_2->setText(QString::number(value));  // 使用 setText 更新 QLabel
-    qDebug() << "screenton_gap_2 = " <<QString::number(value);
+    ui->Slider_Blur_Bks_Val->setText(QString::number(value));  // 使用 setText 更新 QLabel
+    qDebug() << "Slider_Blur_Bks_Val = " <<QString::number(value);
     onResultButtonClicked();
 }
 
-int MainWindow::getScreentoneSizeValue() {
-    return ui->Slider_screentone_size->value(); // 正確取得並返回數值
+int MainWindow::getBinary_Threshold() {
+    return ui->Slider_Binary_Threshold->value(); // 正確取得並返回數值
 }
 // 更新 Size 值
-void MainWindow::updateScreentoneSizeValue(int value)
+void MainWindow::updateBinary_Threshold(int value)
 {
-    ui->screenton_size->setText(QString::number(value));  // 使用 setText 更新 QLabel
-    qDebug() << "screenton_size = " <<QString::number(value);
+    ui->Slider_Binary_Threshold_Val->setText(QString::number(value));  // 使用 setText 更新 QLabel
+    qDebug() << "Slider_Binary_Threshold_Val = " <<QString::number(value);
     onResultButtonClicked();
 }
 // 縮放圖片以適應視圖大小
