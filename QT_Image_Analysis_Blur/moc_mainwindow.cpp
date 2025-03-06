@@ -46,9 +46,9 @@ static constexpr auto qt_meta_stringdata_ZN10MainWindowE = QtMocHelpers::stringD
     "getImageValue",
     "updateImageValue_2",
     "getImageValue_2",
-    "updateScreentoneGapValue",
-    "updateScreentoneGapValue_2",
-    "updateScreentoneSizeValue",
+    "updateBlur_Edge",
+    "updateBlur_Bks",
+    "updateBinary_Threshold",
     "updateOptionCheck",
     "getOptionCheck",
     "updateOptionCheck2",
@@ -56,9 +56,9 @@ static constexpr auto qt_meta_stringdata_ZN10MainWindowE = QtMocHelpers::stringD
     "updateOptionCheck3",
     "getOptionCheck3",
     "onResultButtonClicked",
-    "getScreentoneGapValue",
-    "getScreentoneGapValue_2",
-    "getScreentoneSizeValue",
+    "getBlur_Edge",
+    "getBlur_Bks",
+    "getBinary_Threshold",
     "getbwrev_btnSet",
     "updateObwrev_btnSet",
     "updateProcessBar",
@@ -157,13 +157,13 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'getImageValue_2'
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'updateScreentoneGapValue'
+        // method 'updateBlur_Edge'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'updateScreentoneGapValue_2'
+        // method 'updateBlur_Bks'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'updateScreentoneSizeValue'
+        // method 'updateBinary_Threshold'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'updateOptionCheck'
@@ -180,11 +180,11 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'onResultButtonClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'getScreentoneGapValue'
+        // method 'getBlur_Edge'
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'getScreentoneGapValue_2'
+        // method 'getBlur_Bks'
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'getScreentoneSizeValue'
+        // method 'getBinary_Threshold'
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'getbwrev_btnSet'
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
@@ -213,9 +213,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 3: _t->updateImageValue_2((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 4: { int _r = _t->getImageValue_2();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 5: _t->updateScreentoneGapValue((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 6: _t->updateScreentoneGapValue_2((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 7: _t->updateScreentoneSizeValue((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->updateBlur_Edge((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 6: _t->updateBlur_Bks((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 7: _t->updateBinary_Threshold((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 8: _t->updateOptionCheck(); break;
         case 9: { int _r = _t->getOptionCheck();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
@@ -226,11 +226,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: { int _r = _t->getOptionCheck3();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 14: _t->onResultButtonClicked(); break;
-        case 15: { int _r = _t->getScreentoneGapValue();
+        case 15: { int _r = _t->getBlur_Edge();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 16: { int _r = _t->getScreentoneGapValue_2();
+        case 16: { int _r = _t->getBlur_Bks();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 17: { int _r = _t->getScreentoneSizeValue();
+        case 17: { int _r = _t->getBinary_Threshold();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 18: { int _r = _t->getbwrev_btnSet();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
