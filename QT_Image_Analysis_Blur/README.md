@@ -3,6 +3,11 @@ QT_Image_Analysis_Blur 景深模擬小工具（計算）
 
 **透過影像計算來弄出類似景深效果的功能。**
 
+# V 1.1  Relased on 2025.03.06
+
+Rename Elements in UI and Widget.
+
+
 # V 1.0  Relased on 2025.03.04
 
 此為 practise 項目改的，所以命名有點亂，但功能有趣，就先放到 side_project，之後再進行調整。
