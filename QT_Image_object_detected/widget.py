@@ -9,6 +9,7 @@ from PySide6.QtGui import QPixmap, QImage, QStandardItem, QStandardItemModel
 from PySide6.QtWidgets import QApplication, QWidget, QGraphicsScene, QGraphicsPixmapItem, QFileDialog, QHeaderView, QLabel
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from ui_form import Ui_Widget  # 自動生成的 UI 介面
+import time
 
 
 class Widget(QWidget):
@@ -50,6 +51,8 @@ class Widget(QWidget):
         self.ui.label_5.setText(str(80))
         self.ui.label_7.setText(str(0))
         self.ui.label_9.setText(str(5))
+
+        self.ui.label_process_time.setText("-")
 
         self.ui.horizontalSlider.setMinimum(0)
         self.ui.horizontalSlider.setMaximum(255)
@@ -135,6 +138,7 @@ class Widget(QWidget):
                 ("Type", img_type)
             ])
 
+
             self.ImageView(img)
             self.ui.progressBar.setValue(100)
 
@@ -145,7 +149,14 @@ class Widget(QWidget):
             self.model.setItem(row, 0, QStandardItem(str(key)))
             self.model.setItem(row, 1, QStandardItem(str(value)))
 
+
+    def update_timer_in_process(self,finished_time):
+        # print(f">>>>>finished time = {finished_time}")
+        self.ui.label_process_time.setText(str(finished_time))
+
+
     def ImageView(self, img):
+        start_time = time.time()
         self.ui.progressBar.setValue(0)
         # fig = ip.ImageBinary(img,'normal')
         fig , total_counter = ip.object_detected(img,self.getHorizontalSlider(),self.getHorizontalSlider_2())
@@ -173,6 +184,10 @@ class Widget(QWidget):
 
         self.ui.label_7.setText(str(total_counter))
         self.ui.progressBar.setValue(100)
+
+        end_time = time.time()
+        elapsed_time = round(end_time - start_time, 2)
+        self.update_timer_in_process(elapsed_time)
 
 
     def update_image_profile(self, img):
