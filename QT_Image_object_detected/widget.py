@@ -53,6 +53,7 @@ class Widget(QWidget):
         self.ui.label_9.setText(str(5))
 
         self.ui.label_process_time.setText("-")
+        self.ui.label_processing_item.setText("-")
 
         self.ui.horizontalSlider.setMinimum(0)
         self.ui.horizontalSlider.setMaximum(255)
@@ -81,25 +82,29 @@ class Widget(QWidget):
         """選擇圖片並顯示在 graphicsView"""
         total_counter= 0
         self.ui.label_7.setText(str(total_counter))
+        self.update_msg_in_process("圖片選擇")
         file_path, _ = QFileDialog.getOpenFileName(self, "選擇圖片", "", "Images (*.png *.jpg *.bmp *.jpeg)")
-
         if file_path:
-            # 在 lineEdit 顯示圖片路徑
+            # 在 lineEdit 顯示圖片路徑            
             self.ui.lineEdit.setText(file_path)
 
             # 使用 OpenCV 讀取圖片
+            self.update_msg_in_process("讀取圖片："+file_path)
             img = cv2.imread(file_path)
 
             if img is None:
+                self.update_msg_in_process("讀取圖片失敗："+file_path)
                 print("無法讀取圖片")
                 return
 
             # **轉換 BGR → RGB**
+            self.update_msg_in_process("圖片初始化：色彩格式轉換...")
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             self.img_input_buffer = img.copy()
             self.update_image_profile(img)
 
             # 取得圖片資訊
+            self.update_msg_in_process("圖片初始化：取得圖片基本資訊...")
             height, width, channel = img.shape  # (高度, 寬度, 通道數)
             if (channel == 3):
                 img_type = "RGB"
@@ -138,7 +143,7 @@ class Widget(QWidget):
                 ("Type", img_type)
             ])
 
-
+            self.update_msg_in_process("圖片處理：預覽處理...")
             self.ImageView(img)
             self.ui.progressBar.setValue(100)
 
@@ -153,12 +158,18 @@ class Widget(QWidget):
     def update_timer_in_process(self,finished_time):
         # print(f">>>>>finished time = {finished_time}")
         self.ui.label_process_time.setText(str(finished_time))
+        self.update_msg_in_process("-")
+
+    def update_msg_in_process(self,msg):
+        # print(f">>>>>finished time = {finished_time}")
+        self.ui.label_processing_item.setText(str(msg))
 
 
     def ImageView(self, img):
         start_time = time.time()
         self.ui.progressBar.setValue(0)
         # fig = ip.ImageBinary(img,'normal')
+        self.update_msg_in_process("圖片處理：處理中")
         fig , total_counter = ip.object_detected(img,self.getHorizontalSlider(),self.getHorizontalSlider_2())
 
         height, width, channel = fig.shape  # (高度, 寬度, 通道數)
@@ -184,7 +195,7 @@ class Widget(QWidget):
 
         self.ui.label_7.setText(str(total_counter))
         self.ui.progressBar.setValue(100)
-
+        self.update_msg_in_process("圖片處理：處理完畢")
         end_time = time.time()
         elapsed_time = round(end_time - start_time, 2)
         self.update_timer_in_process(elapsed_time)
