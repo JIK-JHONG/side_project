@@ -2,7 +2,7 @@ QT_Image_object_detected
 -
 It is the image processs for object detecting with GUI (QT creator)
 
-# V 1.1 2025/03/07
+# V 1.1 Relased on 2025.03.07
 
 Update the UI with combobox and add the timer for processing.
 
