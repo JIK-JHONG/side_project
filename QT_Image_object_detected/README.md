@@ -2,6 +2,13 @@ QT_Image_object_detected
 -
 It is the image processs for object detecting with GUI (QT creator)
 
+# V 1.1 2025/03/07
+
+Update the UI with combobox and add the timer for processing.
+
+![Review](https://github.com/JIK-JHONG/side_project/blob/main/QT_Image_object_detected/demo_V1.1.jpeg) 
+
+
 **Without Machine Learning model**, it just can detected the simple object.
 
 注意
